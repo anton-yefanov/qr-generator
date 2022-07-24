@@ -1,4 +1,5 @@
-import { QrButton } from "../QrButton";
+import { DownloadButton } from "../DownloadButton";
+import { ResizeButton } from "../ResizeButton";
 
 export const QrCode = ({ qrValue, setLoading }) => {
   return (
@@ -10,10 +11,10 @@ export const QrCode = ({ qrValue, setLoading }) => {
         onLoad={() => setLoading(false)}
       />
       <div className="qrCode__buttons">
-        <QrButton resolution="256" />
-        <QrButton resolution="512" />
-        <QrButton resolution="1024" />
-        <QrButton resolution="Go" />
+        <ResizeButton resolution="256" />
+        <ResizeButton resolution="512" />
+        <ResizeButton resolution="1024" />
+        <DownloadButton />
       </div>
     </div>
   );

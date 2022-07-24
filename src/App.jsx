@@ -5,26 +5,27 @@ import { QrCode } from "./components/QrCode";
 
 export function App() {
   const [inputValue, setInputValue] = useState("");
+  const [qrValue, setQrValue] = useState("");
+
   const setInput = (event) => {
     setInputValue(event.target.value);
   };
-
-  const [qrValue, setQrValue] = useState("");
 
   const [qrDisplay, setQrDisplay] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
   const onClickGo = () => {
-    const currentValue = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputValue}`;
+    const currentValue = `https://api.qrserver.com/v1/create-qr-code/?size=250x2500&data=${inputValue}`;
     if (currentValue === qrValue) {
       return;
+    } else {
+      setLoading(true);
+      setQrValue(
+        `https://api.qrserver.com/v1/create-qr-code/?size=250x2500&data=${inputValue}`
+      );
+      setQrDisplay(true);
     }
-    setLoading(true);
-    setQrValue(
-      `https://api.qrserver.com/v1/create-qr-code/?size=250x2500&data=${inputValue}`
-    );
-    setQrDisplay(true);
   };
 
   return (
