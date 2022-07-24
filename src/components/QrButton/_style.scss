@@ -1,0 +1,25 @@
+.qrCode__buttons--button {
+  cursor: pointer;
+  color: $colorLight;
+  background-color: $colorBtn;
+  font-size: $fontSizeBtn;
+
+  border-radius: 10px;
+  border: none;
+
+  width: 3rem;
+  height: 3rem;
+
+  box-shadow: 0 3px 0 0 $colorBtnBottom;
+
+  transition: 150ms ease-in-out;
+
+  &:hover {
+    background-color: $colorBtnHover;
+  }
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 0 $colorBtnBottom;
+  }
+}

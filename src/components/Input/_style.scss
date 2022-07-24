@@ -1,0 +1,13 @@
+.app__form {
+  display: flex;
+  gap: $gap;
+  width: 100%;
+
+  &--input {
+    flex-grow: 1;
+    width: $qrWidth;
+    padding: $qrPadding;
+    border-radius: $borderRadius;
+    border: $border;
+  }
+}

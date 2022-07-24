@@ -1,3 +1,35 @@
+@import "./normalize";
+@import "./variables";
+@import "./mixins";
+@import "../components/Input/style";
+@import "../components/GoButton/style";
+@import "../components/QrCode/style";
+@import "../components/QrButton/style";
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
 body {
-  background-color: lightpink;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: $colorBG;
+}
+
+.app {
+  @include flex-col;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorLight;
+  padding: $qrPadding;
+  gap: $gap;
+  border-radius: $borderRadius;
+  box-shadow: 0 2px 0 0 $colorShadow;
+
+  &__title {
+    color: $colorDark;
+    font-size: $fontSizeTitle;
+    margin: 0;
+  }
 }

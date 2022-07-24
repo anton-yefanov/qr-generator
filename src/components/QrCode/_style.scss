@@ -1,0 +1,17 @@
+.qrCode {
+  display: flex;
+  gap: $gap;
+
+  &__image {
+    width: $qrWidth;
+    border: $border;
+    border-radius: $borderRadius;
+    padding: $qrPadding;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
