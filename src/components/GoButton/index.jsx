@@ -1,6 +1,6 @@
-export const GoButton = ({ onClickGo, loading }) => {
+export const GoButton = ({ GenerateQRCode, loading }) => {
   return (
-    <button onClick={onClickGo} className="app__form--button">
+    <button onClick={GenerateQRCode} className="app__form--button">
       {loading ? "Sec" : "Go"}
     </button>
   );

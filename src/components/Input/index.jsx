@@ -1,17 +1,16 @@
 import { GoButton } from "../GoButton";
 
-export const Input = ({ onClickGo, inputValue, setInputValue, loading }) => {
+export const Input = ({ GenerateQRCode, url, setImageUrl, loading }) => {
   return (
     <div className="app__form">
       <input
-        required
-        onChange={setInputValue}
-        value={inputValue}
+        onChange={setImageUrl}
+        value={url}
         className="app__form--input"
         type="text"
         placeholder="Type URL or Text..."
       />
-      <GoButton onClickGo={onClickGo} loading={loading} />
+      <GoButton GenerateQRCode={GenerateQRCode} loading={loading} />
     </div>
   );
 };
