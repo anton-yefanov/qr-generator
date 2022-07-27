@@ -8,7 +8,7 @@ export const Input = ({ GenerateQRCode, url, setImageUrl, loading }) => {
         value={url}
         className="app__form--input"
         type="text"
-        placeholder="Type URL or Text..."
+        placeholder="Введіть URL або текст..."
       />
       <GoButton GenerateQRCode={GenerateQRCode} loading={loading} />
     </div>

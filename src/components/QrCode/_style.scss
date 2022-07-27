@@ -1,17 +1,38 @@
 .qrCode {
   display: flex;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
   gap: $gap;
 
+  transition: all 250ms ease-in-out;
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+  }
+
   &__image {
+    visibility: hidden;
     width: $qrWidth;
     border: $border;
     border-radius: $borderRadius;
     padding: $qrPadding;
+
+    &--visible {
+      visibility: visible;
+    }
   }
 
   &__buttons {
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    &--visible {
+      visibility: visible;
+    }
   }
 }

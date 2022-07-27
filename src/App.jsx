@@ -35,17 +35,19 @@ export function App() {
 
   return (
     <>
-      <div className="app">
-        <h1 className="app__title">Створити QR код</h1>
+      <div className={qrDisplay ? "app app--visible" : "app"}>
         <Input
           GenerateQRCode={GenerateQRCode}
           url={url}
           setImageUrl={setImageUrl}
           loading={loading}
         />
-        {qrDisplay && (
-          <QrCode qrCode={qrCode} setLoading={setLoading} url={url} />
-        )}
+        <QrCode
+          qrDisplay={qrDisplay}
+          qrCode={qrCode}
+          setLoading={setLoading}
+          url={url}
+        />
       </div>
     </>
   );
