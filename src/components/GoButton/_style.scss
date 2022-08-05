@@ -13,8 +13,6 @@
   box-shadow: 0 3px 0 0 $colorBtnBottom;
   transform: translateY(-3px);
 
-  transition: 150ms ease-in-out;
-
   &:hover {
     background-color: $colorBtnHover;
   }
