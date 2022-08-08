@@ -1,7 +1,20 @@
+import { ColorButton } from "../ColorButton";
 import { DownloadButton } from "../DownloadButton";
 import { ResizeButton } from "../ResizeButton";
 
-export const QrCode = ({ qrDisplay, qrCode, setLoading, url }) => {
+export const QrCode = ({
+  qrDisplay,
+  qrCode,
+  url,
+  color,
+  width,
+  setBlue,
+  setDark,
+  setRed,
+  set256,
+  set512,
+  set1024,
+}) => {
   return (
     <div className={qrDisplay ? "qrCode qrCode--visible" : "qrCode"}>
       <img
@@ -10,7 +23,6 @@ export const QrCode = ({ qrDisplay, qrCode, setLoading, url }) => {
         }
         src={qrCode}
         alt="qr-code"
-        onLoad={() => setLoading(false)}
       />
       <div
         className={
@@ -19,9 +31,39 @@ export const QrCode = ({ qrDisplay, qrCode, setLoading, url }) => {
             : "qrCode__buttons"
         }
       >
-        <ResizeButton resolution="256" />
-        <ResizeButton resolution="512" />
-        <ResizeButton resolution="1024" />
+        <ColorButton
+          color={color}
+          changeColor={setDark}
+          colorBG="#ffffff"
+          colorQR="#000000"
+        />
+        <ColorButton
+          color={color}
+          changeColor={setBlue}
+          colorBG="#ffe600"
+          colorQR="#0004ff"
+        />
+        <ColorButton
+          color={color}
+          changeColor={setRed}
+          colorBG="#c50000"
+          colorQR="#000000"
+        />
+        <ResizeButton
+          width={width}
+          changeResolution={set256}
+          resolution="256"
+        />
+        <ResizeButton
+          width={width}
+          changeResolution={set512}
+          resolution="512"
+        />
+        <ResizeButton
+          width={width}
+          changeResolution={set1024}
+          resolution="1024"
+        />
         <DownloadButton qrCode={qrCode} url={url} />
       </div>
     </div>

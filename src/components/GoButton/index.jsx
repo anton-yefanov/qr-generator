@@ -1,4 +1,4 @@
-export const GoButton = ({ GenerateQRCode, loading }) => {
+export const GoButton = ({ GenerateQRCode }) => {
   return (
     <button onClick={GenerateQRCode} className="app__form--button">
       <svg
