@@ -1,6 +1,6 @@
 import { GoButton } from "../GoButton";
 
-export const Input = ({ GenerateQRCode, url, setImageUrl, loading }) => {
+export const Input = ({ GenerateQRCode, url, setImageUrl }) => {
   return (
     <div className="app__form">
       <input
@@ -10,7 +10,7 @@ export const Input = ({ GenerateQRCode, url, setImageUrl, loading }) => {
         type="text"
         placeholder="Введіть URL або текст..."
       />
-      <GoButton GenerateQRCode={GenerateQRCode} loading={loading} />
+      <GoButton GenerateQRCode={GenerateQRCode} />
     </div>
   );
 };

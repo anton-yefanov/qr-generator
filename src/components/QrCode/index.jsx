@@ -8,6 +8,7 @@ export const QrCode = ({
   url,
   color,
   width,
+  filename,
   setBlue,
   setDark,
   setRed,
@@ -64,7 +65,7 @@ export const QrCode = ({
           changeResolution={set1024}
           resolution="1024"
         />
-        <DownloadButton qrCode={qrCode} url={url} />
+        <DownloadButton filename={filename} qrCode={qrCode} url={url} />
       </div>
     </div>
   );

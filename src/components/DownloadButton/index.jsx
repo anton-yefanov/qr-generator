@@ -1,6 +1,6 @@
-export const DownloadButton = ({ qrCode }) => {
+export const DownloadButton = ({ qrCode, filename }) => {
   return (
-    <a href={qrCode} download>
+    <a href={qrCode} download={filename}>
       <button className="qrCode__buttons--download">
         <svg
           width="14"
