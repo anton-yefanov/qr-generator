@@ -1,4 +1,5 @@
 import QRCode from "qrcode";
+import { useSelector } from "react-redux";
 
 import { useState, useEffect } from "react";
 
@@ -6,7 +7,7 @@ import { Input } from "./components/Input";
 import { QrCode } from "./components/QrCode";
 
 export function App() {
-  const [color, setColor] = useState({ dark: "#000000", light: "#ffffff" });
+  const color = useSelector((store) => store.color.color);
 
   const [width, setWidth] = useState(256);
 
@@ -23,21 +24,6 @@ export function App() {
 
   const setImageUrl = (event) => {
     setUrl(event.target.value);
-  };
-
-  const setDark = () => {
-    if (color.light === "#ffffff") return;
-    setColor({ dark: "#000000", light: "#ffffff" });
-  };
-
-  const setBlue = () => {
-    if (color.light === "#ffe600") return;
-    setColor({ dark: "#0004ff", light: "#ffe600" });
-  };
-
-  const setRed = () => {
-    if (color.light === "#c50000") return;
-    setColor({ dark: "#000000", light: "#c50000" });
   };
 
   const set256 = () => {
@@ -90,9 +76,6 @@ export function App() {
           set256={set256}
           set512={set512}
           set1024={set1024}
-          setDark={setDark}
-          setBlue={setBlue}
-          setRed={setRed}
           qrDisplay={qrDisplay}
           qrCode={qrCode}
           url={url}

@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { setDark, setBlue, setRed } from "../../store/slices/colorSlice";
+
 import { ColorButton } from "../ColorButton";
 import { DownloadButton } from "../DownloadButton";
 import { ResizeButton } from "../ResizeButton";
@@ -9,13 +12,20 @@ export const QrCode = ({
   color,
   width,
   filename,
-  setBlue,
-  setDark,
-  setRed,
   set256,
   set512,
   set1024,
 }) => {
+  const colors = {
+    dark: { dark: "#000000", light: "#ffffff" },
+    blue: { dark: "#0004ff", light: "#ffe600" },
+    red: { dark: "#000000", light: "#c50000" },
+  };
+
+  const dispatch = useDispatch();
+  const setColorDark = dispatch(setDark);
+  const setColorBlue = dispatch(setBlue);
+  const setColorRed = dispatch(setRed);
   return (
     <div className={qrDisplay ? "qrCode qrCode--visible" : "qrCode"}>
       <img
@@ -34,19 +44,19 @@ export const QrCode = ({
       >
         <ColorButton
           color={color}
-          changeColor={setDark}
+          changeColor={() => dispatch(setColorDark({ colors }))}
           colorBG="#ffffff"
           colorQR="#000000"
         />
         <ColorButton
           color={color}
-          changeColor={setBlue}
+          changeColor={() => dispatch(setColorBlue)}
           colorBG="#ffe600"
           colorQR="#0004ff"
         />
         <ColorButton
           color={color}
-          changeColor={setRed}
+          changeColor={() => dispatch(setColorRed)}
           colorBG="#c50000"
           colorQR="#000000"
         />
