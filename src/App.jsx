@@ -1,15 +1,13 @@
 import QRCode from "qrcode";
 import { useSelector } from "react-redux";
-
 import { useState, useEffect } from "react";
-
 import { Input } from "./components/Input";
 import { QrCode } from "./components/QrCode";
 
 export function App() {
   const color = useSelector((store) => store.color.color);
 
-  const [width, setWidth] = useState(256);
+  const resolution = useSelector((store) => store.resolution.resolution);
 
   const [url, setUrl] = useState("");
 
@@ -20,22 +18,10 @@ export function App() {
   useEffect(() => {
     qrDisplay && GenerateQRCode();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [color, width]);
+  }, [color, resolution]);
 
   const setImageUrl = (event) => {
     setUrl(event.target.value);
-  };
-
-  const set256 = () => {
-    setWidth(256);
-  };
-
-  const set512 = () => {
-    setWidth(512);
-  };
-
-  const set1024 = () => {
-    setWidth(1024);
   };
 
   const [filename, setFilename] = useState("");
@@ -44,7 +30,7 @@ export function App() {
     QRCode.toDataURL(
       url,
       {
-        width: width,
+        width: resolution,
         margin: 1.2,
         color: color,
       },
@@ -57,7 +43,7 @@ export function App() {
         if (err) return console.error(err);
         setQrCode(url);
         setQrDisplay(true);
-        setFilename(`${width}x${width}_QR-Code`);
+        setFilename(`${resolution}x${resolution}_QR-Code`);
       }
     );
   };
@@ -71,11 +57,6 @@ export function App() {
           setImageUrl={setImageUrl}
         />
         <QrCode
-          width={width}
-          color={color}
-          set256={set256}
-          set512={set512}
-          set1024={set1024}
           qrDisplay={qrDisplay}
           qrCode={qrCode}
           url={url}

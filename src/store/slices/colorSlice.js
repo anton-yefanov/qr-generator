@@ -7,7 +7,8 @@ const colorSlice = createSlice({
   },
   reducers: {
     setDark(state, action) {
-      state.color = action.payload.colors.dark;
+      state.color.dark = "#000000";
+      state.color.light = "#ffffff";
     },
     setBlue(state, action) {
       state.color.dark = "#0004ff";

@@ -1,31 +1,24 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setDark, setBlue, setRed } from "../../store/slices/colorSlice";
+import { set256, set512, set1024 } from "../../store/slices/resolutionSlice";
 
 import { ColorButton } from "../ColorButton";
 import { DownloadButton } from "../DownloadButton";
 import { ResizeButton } from "../ResizeButton";
 
-export const QrCode = ({
-  qrDisplay,
-  qrCode,
-  url,
-  color,
-  width,
-  filename,
-  set256,
-  set512,
-  set1024,
-}) => {
-  const colors = {
-    dark: { dark: "#000000", light: "#ffffff" },
-    blue: { dark: "#0004ff", light: "#ffe600" },
-    red: { dark: "#000000", light: "#c50000" },
-  };
-
+export const QrCode = ({ qrDisplay, qrCode, url, filename }) => {
+  const resolution = useSelector((store) => store.resolution.resolution);
+  const color = useSelector((store) => store.color.color);
   const dispatch = useDispatch();
+
   const setColorDark = dispatch(setDark);
   const setColorBlue = dispatch(setBlue);
   const setColorRed = dispatch(setRed);
+
+  const setResolution256 = dispatch(set256);
+  const setResolution512 = dispatch(set512);
+  const setResolution1024 = dispatch(set1024);
+
   return (
     <div className={qrDisplay ? "qrCode qrCode--visible" : "qrCode"}>
       <img
@@ -44,7 +37,7 @@ export const QrCode = ({
       >
         <ColorButton
           color={color}
-          changeColor={() => dispatch(setColorDark({ colors }))}
+          changeColor={() => dispatch(setColorDark)}
           colorBG="#ffffff"
           colorQR="#000000"
         />
@@ -61,18 +54,18 @@ export const QrCode = ({
           colorQR="#000000"
         />
         <ResizeButton
-          width={width}
-          changeResolution={set256}
+          width={resolution}
+          changeResolution={() => dispatch(setResolution256)}
           resolution="256"
         />
         <ResizeButton
-          width={width}
-          changeResolution={set512}
+          width={resolution}
+          changeResolution={() => dispatch(setResolution512)}
           resolution="512"
         />
         <ResizeButton
-          width={width}
-          changeResolution={set1024}
+          width={resolution}
+          changeResolution={() => dispatch(setResolution1024)}
           resolution="1024"
         />
         <DownloadButton filename={filename} qrCode={qrCode} url={url} />
