@@ -3,28 +3,30 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Input } from "./components/Input";
 import { QrCode } from "./components/QrCode";
+import { IRootState } from "./store";
 
 export function App() {
-  const color = useSelector((store) => store.color.color);
+  const color = useSelector<IRootState, any>((store) => store.color.color);
+  const resolution = useSelector<IRootState, number>(
+    (store) => store.resolution.resolution
+  );
 
-  const resolution = useSelector((store) => store.resolution.resolution);
+  const [url, setUrl] = useState<string>("");
 
-  const [url, setUrl] = useState("");
+  const [qrCode, setQrCode] = useState<string>("");
 
-  const [qrCode, setQrCode] = useState("");
+  const [qrDisplay, setQrDisplay] = useState<boolean>(false);
 
-  const [qrDisplay, setQrDisplay] = useState(false);
+  const [filename, setFilename] = useState<string>("");
+
+  const setImageUrl = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setUrl(event.target.value);
+  };
 
   useEffect(() => {
     qrDisplay && GenerateQRCode();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, resolution]);
-
-  const setImageUrl = (event) => {
-    setUrl(event.target.value);
-  };
-
-  const [filename, setFilename] = useState("");
 
   const GenerateQRCode = () => {
     QRCode.toDataURL(
@@ -34,7 +36,7 @@ export function App() {
         margin: 1.2,
         color: color,
       },
-      (err, url) => {
+      (err: Error | null | undefined, url: string) => {
         if (!url)
           setQrCode(
             "https://c.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif"

@@ -1,6 +1,16 @@
-export const GoButton = ({ GenerateQRCode }) => {
+import { FC } from "react";
+
+interface IProps {
+  GenerateQRCode: () => void;
+}
+
+export const GoButton: FC<IProps> = ({ GenerateQRCode }) => {
   return (
-    <button onClick={GenerateQRCode} className="app__form--button">
+    <button
+      aria-label="generateQR-button"
+      onClick={GenerateQRCode}
+      className="app__form--button"
+    >
       <svg
         width="12"
         height="12"

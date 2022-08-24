@@ -1,6 +1,6 @@
 import "./style/index.scss";
 
-import { store } from "./store/index.js";
+import { store } from "./store/index.ts";
 import { Provider } from "react-redux";
 
 import React from "react";

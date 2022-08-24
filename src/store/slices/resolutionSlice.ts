@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface ResolutionInitialState {
+  resolution: number;
+}
+
+const resolutionInitialState: ResolutionInitialState = {
+  resolution: 256,
+};
+
 const resolutionSlice = createSlice({
   name: "resolution",
-  initialState: {
-    resolution: 256,
-  },
+  initialState: resolutionInitialState,
   reducers: {
     set256(state) {
       state.resolution = 256;

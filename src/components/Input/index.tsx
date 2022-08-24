@@ -1,10 +1,17 @@
+import { FC } from "react";
 import { GoButton } from "../GoButton";
 
-export const Input = ({ GenerateQRCode, url, setImageUrl }) => {
+interface IProps {
+  GenerateQRCode: () => void;
+  url: string;
+  setImageUrl: () => void;
+}
+
+export const Input: FC<IProps> = ({ GenerateQRCode, url, setImageUrl }) => {
   return (
     <div className="app__form">
       <input
-        onChange={setImageUrl}
+        onChange={() => setImageUrl}
         value={url}
         className="app__form--input"
         type="text"

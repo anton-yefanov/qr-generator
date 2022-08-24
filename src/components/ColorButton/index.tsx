@@ -1,6 +1,24 @@
-export const ColorButton = ({ colorBG, colorQR, changeColor, color }) => {
+import { FC } from "react";
+
+interface IProps {
+  colorBG: string;
+  colorQR: string;
+  changeColor: () => void;
+  color: {
+    light: string;
+    dark: string;
+  };
+}
+
+export const ColorButton: FC<IProps> = ({
+  colorBG,
+  colorQR,
+  changeColor,
+  color,
+}) => {
   return (
     <button
+      aria-label="changeColor-button"
       style={
         colorQR === color.dark && colorBG === color.light
           ? {
@@ -8,7 +26,7 @@ export const ColorButton = ({ colorBG, colorQR, changeColor, color }) => {
               boxShadow: "0 0 0 0 black",
               backgroundColor: "hsl(245, 45%, 60%)",
             }
-          : null
+          : undefined
       }
       onClick={changeColor}
       className="qrCode__buttons--color"

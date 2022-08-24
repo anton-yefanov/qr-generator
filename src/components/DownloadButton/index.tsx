@@ -1,7 +1,17 @@
-export const DownloadButton = ({ qrCode, filename }) => {
+import { FC } from "react";
+
+interface IProps {
+  qrCode: string;
+  filename: string;
+}
+
+export const DownloadButton: FC<IProps> = ({ qrCode, filename }) => {
   return (
     <a href={qrCode} download={filename}>
-      <button className="qrCode__buttons--download">
+      <button
+        aria-label="downloadQR-button"
+        className="qrCode__buttons--download"
+      >
         <svg
           width="14"
           height="18"
