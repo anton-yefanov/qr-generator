@@ -4,14 +4,14 @@ import { GoButton } from "../GoButton";
 interface IProps {
   GenerateQRCode: () => void;
   url: string;
-  setImageUrl: () => void;
+  setImageUrl: any;
 }
 
 export const Input: FC<IProps> = ({ GenerateQRCode, url, setImageUrl }) => {
   return (
     <div className="app__form">
       <input
-        onChange={() => setImageUrl}
+        onChange={setImageUrl}
         value={url}
         className="app__form--input"
         type="text"
