@@ -34,6 +34,8 @@ export const QrCode: FC<IProps> = ({ qrDisplay, qrCode, url, filename }) => {
   return (
     <div className={qrDisplay ? "qrCode qrCode--visible" : "qrCode"}>
       <img
+        height={220}
+        width={220}
         className={
           qrDisplay ? "qrCode__image qrCode__image--visible" : "qrCode__image"
         }

@@ -7,7 +7,7 @@ interface IProps {
 
 export const DownloadButton: FC<IProps> = ({ qrCode, filename }) => {
   return (
-    <a href={qrCode} download={filename}>
+    <a href={qrCode ? qrCode : "#"} download={filename}>
       <button
         aria-label="downloadQR-button"
         className="qrCode__buttons--download"
