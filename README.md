@@ -14,7 +14,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-![Home page](https://github.com/antony-efanov/qr-generator/blob/master/public/img/qr_promo.png?raw=true "Ekart home page")
+![Home page](https://github.com/antony-efanov/qr-generator/blob/master/src/assets/images/qr_promo.png?raw=true "Ekart home page")
 
 #### The common funtionalities are:
 
