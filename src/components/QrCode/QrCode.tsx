@@ -9,16 +9,12 @@ import { DownloadButton } from "../DownloadButton";
 import { ResizeButton } from "../ResizeButton";
 import { IQrCodeProps } from "./types";
 
-const QrCode: FC<IQrCodeProps> = ({ qrDisplay, qrCode, url, filename }) => {
+const QrCode: FC<IQrCodeProps> = ({ qrDisplay, qrCode, filename }) => {
   const dispatch = useDispatch();
   const resolution = useSelector<IRootState, number>(
     (store) => store.resolution.resolution
   );
   const color = useSelector<IRootState, any>((store) => store.color.color);
-
-  // const setColorDark = dispatch(setDark);
-  // const setColorBlue = dispatch(setBlue);
-  // const setColorRed = dispatch(setRed);
 
   const setResolution256 = dispatch(set256);
   const setResolution512 = dispatch(set512);
