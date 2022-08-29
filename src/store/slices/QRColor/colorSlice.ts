@@ -1,12 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Color } from "../../common/enums";
-
-interface ColorInitialState {
-  color: {
-    dark: string;
-    light: string;
-  };
-}
+import { Color } from "../../../common/enums";
+import { ColorInitialState } from "./types";
 
 const colorInitialState: ColorInitialState = {
   color: { dark: Color.Black, light: Color.White },

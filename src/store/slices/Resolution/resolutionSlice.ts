@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Resolution } from "../../common/enums";
-
-interface ResolutionInitialState {
-  resolution: number;
-}
+import { Resolution } from "../../../common/enums";
+import { ResolutionInitialState } from "./types";
 
 const resolutionInitialState: ResolutionInitialState = {
   resolution: Resolution.x256,

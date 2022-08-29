@@ -5,7 +5,7 @@ import {
   setBlueAction,
   setDarkAction,
   setRedAction,
-} from "../../store/slices/colorSlice";
+} from "../../store/slices/QRColor/colorSlice";
 import { IColorButtonProps } from "./types";
 
 const ColorButton: FC<IColorButtonProps> = ({ colorBG, colorQR }) => {
@@ -16,7 +16,7 @@ const ColorButton: FC<IColorButtonProps> = ({ colorBG, colorQR }) => {
     switch (colorBG) {
       case Color.White:
         return dispatch(setDarkAction());
-      case Color.Yellow:
+      case Color.Blue:
         return dispatch(setBlueAction());
       case Color.Red:
         return dispatch(setRedAction());
@@ -28,7 +28,7 @@ const ColorButton: FC<IColorButtonProps> = ({ colorBG, colorQR }) => {
       aria-label="changeColor-button"
       onClick={onChangeQrColor}
       className={
-        colorQR === color.dark && colorBG === color.light
+        colorBG === color.light
           ? "qrCode__buttons--color active"
           : "qrCode__buttons--color"
       }

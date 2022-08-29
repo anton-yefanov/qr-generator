@@ -5,7 +5,7 @@ import { Input } from "../../components/Input";
 import { QrCode } from "../../components/QrCode";
 import EmptyInputGif from "../../assets/images/empty.gif";
 
-export const Main = () => {
+const Main = () => {
   const color = useAppSelector((store) => store.color.color);
 
   const resolution = useAppSelector((store) => store.resolution.resolution);
@@ -62,3 +62,5 @@ export const Main = () => {
     </div>
   );
 };
+
+export default Main;

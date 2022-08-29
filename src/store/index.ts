@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import colorReducer from "./slices/colorSlice";
-import resolutionReducer from "./slices/resolutionSlice";
+import colorReducer from "./slices/QRColor/colorSlice";
+import resolutionReducer from "./slices/Resolution/resolutionSlice";
 
 const rootReducer = combineReducers({
   color: colorReducer,

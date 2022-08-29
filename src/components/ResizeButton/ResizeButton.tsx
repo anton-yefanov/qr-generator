@@ -6,14 +6,14 @@ import {
   set256Action,
   set512Action,
   set1024Action,
-} from "../../store/slices/resolutionSlice";
+} from "../../store/slices/Resolution/resolutionSlice";
 
 const ResizeButton: FC<IResizeButtonProps> = ({ label }) => {
   const resolution = useAppSelector((store) => store.resolution.resolution);
   const dispatch = useAppDispatch();
 
   const onChangeResolution = () => {
-    switch (resolution) {
+    switch (label) {
       case Resolution.x256:
         return dispatch(set256Action());
       case Resolution.x512:

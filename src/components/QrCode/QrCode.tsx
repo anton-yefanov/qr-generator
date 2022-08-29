@@ -26,7 +26,7 @@ const QrCode: FC<IQrCodeProps> = ({ qrDisplay, qrCode, filename }) => {
         }
       >
         <ColorButton colorBG={Color.White} colorQR={Color.Black} />
-        <ColorButton colorBG={Color.Yellow} colorQR={Color.Blue} />
+        <ColorButton colorBG={Color.Blue} colorQR={Color.Yellow} />
         <ColorButton colorBG={Color.Red} colorQR={Color.Black} />
         <ResizeButton label={Resolution.x256} />
         <ResizeButton label={Resolution.x512} />
