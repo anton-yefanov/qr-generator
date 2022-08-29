@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Color, Resolution } from "../../common/enums";
-
-import ColorButton from "../ColorButton/ColorButton";
+import { ColorButton } from "../ColorButton/";
 import { DownloadButton } from "../DownloadButton";
 import { ResizeButton } from "../ResizeButton";
 import { IQrCodeProps } from "./types";
