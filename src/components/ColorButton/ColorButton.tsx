@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { Color } from "../../common/enums";
 import {
   setBlueAction,
@@ -8,8 +8,9 @@ import {
 } from "../../store/slices/colorSlice";
 import { IColorButtonProps } from "./types";
 
-const ColorButton: FC<IColorButtonProps> = ({ colorBG, colorQR, color }) => {
-  const dispatch = useDispatch();
+const ColorButton: FC<IColorButtonProps> = ({ colorBG, colorQR }) => {
+  const color = useAppSelector((store) => store.color.color);
+  const dispatch = useAppDispatch();
 
   const onChangeQrColor = () => {
     switch (colorBG) {

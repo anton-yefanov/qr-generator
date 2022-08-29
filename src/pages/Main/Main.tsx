@@ -1,17 +1,14 @@
 import QRCode from "qrcode";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks";
 import { useState, useEffect } from "react";
 import { Input } from "../../components/Input";
 import { QrCode } from "../../components/QrCode";
-import { IRootState } from "../../store";
 import EmptyInputGif from "../../assets/images/empty.gif";
 
 export const Main = () => {
-  const color = useSelector<IRootState, any>((store) => store.color.color);
+  const color = useAppSelector((store) => store.color.color);
 
-  const resolution = useSelector<IRootState, number>(
-    (store) => store.resolution.resolution
-  );
+  const resolution = useAppSelector((store) => store.resolution.resolution);
 
   const [url, setUrl] = useState<string>("");
 

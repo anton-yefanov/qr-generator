@@ -6,7 +6,7 @@ export enum Color {
   Red = "#c50000",
 }
 
-export enum Resosution {
+export enum Resolution {
   x256 = 256,
   x512 = 512,
   x1024 = 1024,

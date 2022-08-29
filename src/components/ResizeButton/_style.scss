@@ -5,7 +5,7 @@
   cursor: pointer;
   color: $colorLight;
   background-color: $colorBtn;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
 
   border-radius: 10px;
   border: none;
@@ -19,5 +19,11 @@
   &:active {
     transform: translateY(3px);
     box-shadow: 0 0 0 0 $colorBtnBottom;
+  }
+
+  &.active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 0 black;
+    background-color: hsl(245, 45%, 60%);
   }
 }

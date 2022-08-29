@@ -1,27 +1,39 @@
 import { FC } from "react";
+import { Resolution } from "../../common/enums";
 import { IResizeButtonProps } from "./types";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import {
+  set256Action,
+  set512Action,
+  set1024Action,
+} from "../../store/slices/resolutionSlice";
 
-const ResizeButton: FC<IResizeButtonProps> = ({
-  resolution,
-  label,
-  changeResolution,
-}) => {
+const ResizeButton: FC<IResizeButtonProps> = ({ label }) => {
+  const resolution = useAppSelector((store) => store.resolution.resolution);
+  const dispatch = useAppDispatch();
+
+  const onChangeResolution = () => {
+    switch (resolution) {
+      case Resolution.x256:
+        return dispatch(set256Action());
+      case Resolution.x512:
+        return dispatch(set512Action());
+      case Resolution.x1024:
+        return dispatch(set1024Action());
+    }
+  };
+
   return (
     <button
       aria-label="changeSize-button"
-      style={
+      onClick={onChangeResolution}
+      className={
         +resolution === +label
-          ? {
-              transform: "translateY(3px)",
-              boxShadow: "0 0 0 0 black",
-              backgroundColor: "hsl(245, 45%, 60%)",
-            }
-          : undefined
+          ? "qrCode__buttons--resize active"
+          : "qrCode__buttons--resize"
       }
-      onClick={changeResolution}
-      className="qrCode__buttons--resize"
     >
-      {label}
+      {label}px
     </button>
   );
 };
