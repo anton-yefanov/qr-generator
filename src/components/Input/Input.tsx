@@ -1,13 +1,8 @@
 import { FC } from "react";
 import { GoButton } from "../GoButton";
+import { IInputProps } from "./types";
 
-interface IProps {
-  GenerateQRCode: () => void;
-  url: string;
-  setImageUrl: any;
-}
-
-export const Input: FC<IProps> = ({ GenerateQRCode, url, setImageUrl }) => {
+const Input: FC<IInputProps> = ({ GenerateQRCode, url, setImageUrl }) => {
   return (
     <div className="app__form">
       <input
@@ -21,3 +16,5 @@ export const Input: FC<IProps> = ({ GenerateQRCode, url, setImageUrl }) => {
     </div>
   );
 };
+
+export default Input;

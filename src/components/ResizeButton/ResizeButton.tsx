@@ -1,12 +1,7 @@
 import { FC } from "react";
+import { IResizeButtonProps } from "./types";
 
-interface IProps {
-  resolution: number;
-  label: number;
-  changeResolution: () => void;
-}
-
-export const ResizeButton: FC<IProps> = ({
+const ResizeButton: FC<IResizeButtonProps> = ({
   resolution,
   label,
   changeResolution,
@@ -30,3 +25,5 @@ export const ResizeButton: FC<IProps> = ({
     </button>
   );
 };
+
+export default ResizeButton;

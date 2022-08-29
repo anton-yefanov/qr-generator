@@ -1,11 +1,7 @@
 import { FC } from "react";
+import { IDownloadButtonProps } from "./types";
 
-interface IProps {
-  qrCode: string;
-  filename: string;
-}
-
-export const DownloadButton: FC<IProps> = ({ qrCode, filename }) => {
+const DownloadButton: FC<IDownloadButtonProps> = ({ qrCode, filename }) => {
   return (
     <a href={qrCode ? qrCode : "#"} download={filename}>
       <button
@@ -28,3 +24,5 @@ export const DownloadButton: FC<IProps> = ({ qrCode, filename }) => {
     </a>
   );
 };
+
+export default DownloadButton;

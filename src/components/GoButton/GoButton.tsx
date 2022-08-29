@@ -1,10 +1,7 @@
 import { FC } from "react";
+import { IGoButtonProps } from "./types";
 
-interface IProps {
-  GenerateQRCode: () => void;
-}
-
-export const GoButton: FC<IProps> = ({ GenerateQRCode }) => {
+const GoButton: FC<IGoButtonProps> = ({ GenerateQRCode }) => {
   return (
     <button
       aria-label="generateQR-button"
@@ -26,3 +23,5 @@ export const GoButton: FC<IProps> = ({ GenerateQRCode }) => {
     </button>
   );
 };
+
+export default GoButton;

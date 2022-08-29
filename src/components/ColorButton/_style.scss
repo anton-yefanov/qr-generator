@@ -20,4 +20,10 @@
     transform: translateY(3px);
     box-shadow: 0 0 0 0 $colorBtnBottom;
   }
+
+  &.active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 0 black;
+    background-color: hsl(245, 45%, 60%);
+  }
 }

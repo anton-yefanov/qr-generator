@@ -16,20 +16,21 @@ const colorSlice = createSlice({
   name: "color",
   initialState: colorInitialState,
   reducers: {
-    setDark(state, action) {
+    setDarkAction(state) {
       state.color.dark = Color.Black;
       state.color.light = Color.White;
     },
-    setBlue(state, action) {
+    setBlueAction(state) {
       state.color.dark = Color.Yellow;
       state.color.light = Color.Blue;
     },
-    setRed(state, action) {
+    setRedAction(state) {
       state.color.dark = Color.Black;
       state.color.light = Color.Red;
     },
   },
 });
 
-export const { setDark, setBlue, setRed } = colorSlice.actions;
+export const { setDarkAction, setBlueAction, setRedAction } =
+  colorSlice.actions;
 export default colorSlice.reducer;
